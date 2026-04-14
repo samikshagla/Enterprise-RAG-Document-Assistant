@@ -12,7 +12,7 @@ def generate_answer(query: str, groq_api_key: str):
     3. Queries the Groq LLM for the final answer
     """
     # 1. Retrieve the context
-    results = query_database(query, k=3)
+    results = query_database(query, k=5)
     if not results:
         print("[ERROR] No context retrieved. Cannot answer.")
         return
@@ -25,14 +25,14 @@ def generate_answer(query: str, groq_api_key: str):
     print("\n[INFO] Connecting to Groq via LLM...")
     llm = ChatGroq(
         api_key=groq_api_key,
-        model="llama-3.1-8b-instant",
+        model="llama-3.3-70b-versatile",
         temperature=0.0 # Force deterministic and factual answers
     )
     
     # 3. Create the prompt
-    # Strict instructions to avoid hallucinations based on outside knowledge
+    # Strict instructions to avoid hallucinations but allow reasonable comprehension
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful Enterprise AI assistant. You must answer the user's question ONLY using the provided context. If the answer is not in the context, say 'I cannot answer this based on the provided documents.' Do not use outside knowledge.\n\nCONTEXT:\n{context}"),
+        ("system", "You are a helpful Enterprise AI assistant. Answer the user's question based strictly on the provided context. You may infer meaning from the context to answer the question, but do not hallucinate outside knowledge. If the answer cannot be reasonably found in the context, say 'I cannot answer this based on the provided documents.'\n\nCONTEXT:\n{context}"),
         ("human", "{question}")
     ])
     
