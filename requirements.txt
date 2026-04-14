@@ -1,1 +1,4 @@
 PyMuPDF
+langchain
+langchain-community
+sentence-transformers
