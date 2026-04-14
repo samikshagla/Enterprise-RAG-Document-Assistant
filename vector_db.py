@@ -76,8 +76,10 @@ def query_database(query: str, k: int = 3):
         print(f"\nResult #{idx} (Source: {source}, Chunk: {chunk_id}):")
         # Removing excess newlines for terminal readability
         clean_content = doc.page_content.replace("\n", " ").strip()
-        print(f"'{clean_content}'")
+        print("'" + clean_content + "'")
         print("-" * 50)
+    
+    return results
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ChromaDB Vector Store Integration")
