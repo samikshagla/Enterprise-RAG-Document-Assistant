@@ -25,7 +25,7 @@ def generate_answer(query: str, groq_api_key: str):
     print("\n[INFO] Connecting to Groq via LLM...")
     llm = ChatGroq(
         api_key=groq_api_key,
-        model="llama3-8b-8192",
+        model="llama-3.1-8b-instant",
         temperature=0.0 # Force deterministic and factual answers
     )
     
@@ -48,6 +48,7 @@ def generate_answer(query: str, groq_api_key: str):
     print("\n================ FINAL ANSWER ================\n")
     print(response.content)
     print("\n==============================================\n")
+    return response.content
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Full RAG Pipeline with Groq LLM")

@@ -5,3 +5,7 @@ sentence-transformers
 chromadb
 langchain-chroma
 langchain-groq
+fastapi
+uvicorn
+python-multipart
+streamlit
