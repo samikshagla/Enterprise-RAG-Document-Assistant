@@ -1,8 +1,9 @@
 import streamlit as st
 import requests
+import os
 
-# Constants for the API backend (running on localhost)
-API_BASE_URL = "http://127.0.0.1:8000"
+# Constants for the API backend (configurable for Docker)
+API_BASE_URL = os.environ.get("API_BASE_URL", "http://127.0.0.1:8000")
 
 st.set_page_config(page_title="Enterprise RAG Assistant", page_icon="🤖", layout="centered")
 

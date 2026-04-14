@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: rag-backend
+    command: uvicorn backend:app --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      # Map the API key from your host machine into the container
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    networks:
+      - rag-network
+
+  frontend:
+    build: .
+    container_name: rag-frontend
+    command: streamlit run frontend.py --server.address=0.0.0.0 --server.port=8501
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    environment:
+      # Allow the frontend container to talk to the backend container over the docker network
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - rag-network
+
+networks:
+  rag-network:
+    driver: bridge
