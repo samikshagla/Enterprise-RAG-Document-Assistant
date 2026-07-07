@@ -83,3 +83,4 @@ models/
 
 # Local files
 .DS_Store
+temp_uploads/

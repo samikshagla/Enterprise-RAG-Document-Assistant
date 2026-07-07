@@ -16,6 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of our application code
 COPY . .
 
+# Convert Windows line endings (CRLF) to Unix line endings (LF) in start.sh and make it executable
+RUN sed -i -e 's/\r$//' start.sh && chmod +x start.sh
+
 # Expose the ports that FastAPI and Streamlit will use
 EXPOSE 8000
 EXPOSE 8501
+
+CMD ["./start.sh"]
