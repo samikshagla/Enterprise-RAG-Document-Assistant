@@ -1,14 +1,15 @@
 ---
-title: Enterprise RAG Document Assistant
 emoji: 🤖
-colorFrom: blue
-colorTo: indigo
 sdk: docker
 app_port: 7860
 pinned: false
 ---
 
 # 🤖 Enterprise RAG Document Assistant
+
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Samiksha2509/rag)
+
+🔗 **Live Link**: [https://huggingface.co/spaces/Samiksha2509/rag](https://huggingface.co/spaces/Samiksha2509/rag)
 
 A full-stack, AI-powered Retrieval-Augmented Generation (RAG) system running entirely inside Docker containers. This platform allows you to securely upload enterprise PDF documents, index their knowledge using localized vector embeddings, and interface with powerful LLMs (like LLaMA 3 via Groq) to accurately answer questions based **strictly** on the ingested context.
 
