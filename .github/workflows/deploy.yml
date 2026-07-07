@@ -19,4 +19,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://samikshagla:$HF_TOKEN@huggingface.co/spaces/samikshagla/Enterprise-RAG-Document-Assistant main
+          git push --force https://Samiksha2509:$HF_TOKEN@huggingface.co/spaces/Samiksha2509/rag main
