@@ -1,3 +1,13 @@
+---
+title: Enterprise RAG Document Assistant
+emoji: 🤖
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🤖 Enterprise RAG Document Assistant
 
 A full-stack, AI-powered Retrieval-Augmented Generation (RAG) system running entirely inside Docker containers. This platform allows you to securely upload enterprise PDF documents, index their knowledge using localized vector embeddings, and interface with powerful LLMs (like LLaMA 3 via Groq) to accurately answer questions based **strictly** on the ingested context.
